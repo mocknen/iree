@@ -36,7 +36,7 @@ IREE_API_EXPORT iree_status_t iree_hal_vulkan_syms_create(
         if (strncmp(function_name, fn.data(), fn.size()) == 0) {
           return reinterpret_cast<PFN_vkVoidFunction>(vkGetInstanceProcAddr_fn);
         }
-        return reinterpret_cast<PFN_vkVoidFunction>(NULL);
+        return static_cast<PFN_vkVoidFunction>(nullptr);
       },
       &syms));
 

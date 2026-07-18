@@ -4,8 +4,16 @@
 # See https://llvm.org/LICENSE.txt for license information.
 # SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 
-from .main import CliMain
+from sys import exit
+
+from .main import iree_build_main
+
+
+def main(
+    args: list[str] | None = None,
+):
+    iree_build_main(args=args)
 
 
 if __name__ == "__main__":
-    CliMain().run()
+    exit(main())
